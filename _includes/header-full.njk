@@ -1,0 +1,18 @@
+{% extends "husk.njk" %}
+{% set title %}xondisnet{% endset %}
+{% block website_layout %}
+<header class="header-full">
+	<div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_bottom,transparent_80%,white),var(--header-img-background)] bg-cover bg-center bg-no-repeat"></div>
+	<div class="absolute top-0 left-0 w-full h-full bg-[image:var(--header-img-name)] bg-size-[200%] bg-center bg-no-repeat sm:bg-cover"></div>
+</header>
+<div class="topbar-full">
+	{% if topbar_on %}
+	<div class="absolute box-border top-0 left-0 w-full h-full border-b-2 border-dashed border-black bg-[linear-gradient(to_bottom,white,transparent)] bg-no-repeat">
+		<div class="flex justify-center items-center box-border w-[80rem] max-w-[90%] sm:max-w-[95%] h-full py-8 mx-auto">
+			{% block topbar %}{% endblock %}
+		</div>
+	</div>
+	{% endif %}
+</div>
+<div class="content-wrapper">{% block main_content %}{{ content | safe }}{% endblock %}</div>
+{% endblock %}

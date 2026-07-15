@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="icon" type="image/x-icon" href="/shared/favicon.ico"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{{ title }}</title>
+
+		<!-- LIBRARIES -->
+		<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="/shared/main.css">
+	</head>
+	<body class="bg-white">
+		<header id="site-header" class="relative box-border w-full transition-headerResize
+			{% if header_state == 'full' %} h-[calc(100vh-12rem)] {% else %} h-auto {% endif %} min-h-[12rem] max-h-[48rem]">
+
+			<div class="-z-1 absolute top-0 left-0 w-full h-full bg-white bg-[linear-gradient(225deg,transparent_50%,white),linear-gradient(to_bottom,transparent_50%,white),linear-gradient(135deg,transparent_50%,white),var(--header-img-background)] bg-cover bg-center bg-no-repeat pointer-events-none"></div>
+			<div id="header-img-name" class="z-0 absolute top-0 left-0 w-full h-full bg-[image:var(--header-img-name)] bg-size-[200%] bg-center bg-no-repeat sm:bg-cover pointer-events-none
+				{% if header_state == 'full' %} transition-headerShow {% else %} transition-headerHide {% endif %}"></div>
+
+			<div id="site-topbar" class="relative z-1 w-full h-full bg-[linear-gradient(to_bottom,transparent,white)] bg-no-repeat
+				{% if header_state != 'full' and topbar_on %} transition-headerShow {% else %} transition-headerHide {% endif %}">
+				<div id="swup-topbar" class="flex flex-wrap justify-start sm:justify-center items-start sm:items-center box-border w-[80rem] max-w-[90%] sm:max-w-[95%] h-auto min-h-[12rem] max-h-[48rem] py-8 mx-auto transition-swupTopbar">
+					{% topbarPath title, topbar_path, topbar_pathlinks %}
+				</div>
+			</div>
+		</header>
+
+		<main id="swup" class="content-wrapper transition-main" data-header-state="{{ header_state | default('compact') }}" data-topbar-on="{{ topbar_on | default(true) }}">{{ content | safe }}</main>
+
+		<svg class="hr-squiggle" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" preserveAspectRatio="none">
+			<defs><pattern width="3rem" height="1.5rem" id="squiggle-pattern-width48" patternUnits="userSpaceOnUse">
+				<path d="M0 12 Q 12 24, 24 12 T 48 12" stroke="currentColor"
+					stroke-width="2" stroke-linecap="square" fill="transparent"/>
+			</pattern></defs>
+			<rect width="100%" height="100%" fill="url(#squiggle-pattern-width48)"/>
+		</svg>
+		<section id="site-footer">
+			<div class="w-full py-6 border-t-2 border-t-2 border-dashed border-primary-800">
+				<p class="text-xs text-center">Made by me with Eleventy, Deployed on Cloudflare Pages.</p>
+			</div>
+		</section>
+
+		<script src="https://unpkg.com/swup@4"></script>
+		<script src="/shared/main.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", event => twemoji.parse(document.body));
+		</script>
+	</body>
+</html>

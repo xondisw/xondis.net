@@ -1,0 +1,26 @@
+{% extends "header-compact.njk" %}
+{% set title %}about me{% endset %}
+{% set topbar_on %}true{% endset %}
+{% block topbar %}
+	{% topbarPath title %}
+{% endblock %}
+{% block main_content %}
+<section class="content flex items-center justify-center">
+	<div class="box-border bg-secondary-200 bg-[var(--secondary-400-vignette),var(--gay-genderfluid-overlay)] bg-size-[150%] sm:bg-contain bg-top-right bg-no-repeat flex flex-col items-start p-4 sm:p-8 border-2 border-secondary-800 rounded-2xl">
+		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-start w-full space-x-4 mb-8">
+			<!--<div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-content text-2xl shadow-inner justify-center text-white font-bold font-mono"></div>-->
+			<img src="/shared/avatar_img.png" alt="My avatar! (Profile picture)" class="justify-content w-23 h-23 sm:w-33 sm:h-33 p-0.5 mb-6 sm:mb-0 border-2 border-primary-600 rounded-full"></img>
+			<div>
+				<p class="text-base font-medium"><b>hello there!</b> my name is</p>
+				<p class="!text-6xl sm:!text-6xl !leading-none !underline !underline-offset-[0.25rem] !decoration-dashed !decoration-from-font !decoration-primary-600 !font-display !font-normal sm:!font-light">xondisw</p>
+				<p class="!text-3xl sm:!text-3xl !leading-none !font-display !font-medium sm:!font-normal">or just xon</p>
+			</div>
+		</div>
+		<p class="max-w-[35rem] text-lg mb-2">and <b>welcome</b> to my little corner of the web<i>!</i></p>
+		<p class="max-w-[35rem] text-lg">
+			i am a <b>minor <span class="text-[75%]">(DO NOT GROOM)</span></b>, <b>gay and genderfluid</b> and i go by <b>any pronouns</b><i>!</i>
+		</p>
+	</div>
+</section>
+<section class="content markdown">{{ content | safe }}</section>
+{% endblock %}

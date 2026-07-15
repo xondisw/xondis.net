@@ -1,0 +1,16 @@
+{% extends "husk.njk" %}
+{% block website_layout %}
+<header class="header-compact">
+	<div class="-z-1 absolute top-0 left-0 w-full h-full bg-white bg-[linear-gradient(225deg,transparent_50%,white),linear-gradient(to_bottom,transparent_50%,white),linear-gradient(135deg,transparent_50%,white),var(--header-img-background)] bg-cover bg-center bg-no-repeat"></div>
+	{% if topbar_on %}
+	<div class="bg-[linear-gradient(to_bottom,transparent,white)] bg-no-repeat">
+		<div class="flex flex-wrap justify-start sm:justify-center items-start sm:items-center box-border w-[80rem] max-w-[90%] sm:max-w-[95%] h-auto min-h-[12rem] max-h-[48rem] py-8 mx-auto">
+			{% topbarPath title, topbar_path, topbar_pathlinks %}
+		</div>
+	</div>
+	{% else %}
+	<div class="absolute top-0 left-0 w-full h-full bg-[image:var(--header-img-name)] bg-size-[200%] bg-center bg-no-repeat sm:bg-cover"></div>
+	{% endif %}
+</header>
+<div class="content-wrapper">{{ content | safe }}</div>
+{% endblock %}
