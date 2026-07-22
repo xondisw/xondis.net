@@ -51,6 +51,7 @@
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
+    --radius-sm: 0.25rem;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --default-transition-duration: 150ms;
@@ -67,6 +68,7 @@
     --color-primary-600: #9a329a;
     --color-primary-700: #742574;
     --color-primary-800: #4d194d;
+    --color-primary-950: #1b091b;
     --color-secondary-200: #f7f7a1;
     --color-secondary-500: #ecec13;
     --color-secondary-800: #5e5e08;
@@ -227,11 +229,20 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
+  }
+  .sticky {
+    position: sticky;
   }
   .top-0 {
     top: 0;
@@ -247,6 +258,9 @@
   }
   .z-1 {
     z-index: 1;
+  }
+  .col-span-full {
+    grid-column: 1 / -1;
   }
   .m-2 {
     margin: calc(var(--spacing) * 2);
@@ -266,8 +280,8 @@
   .\!mt-2 {
     margin-top: calc(var(--spacing) * 2) !important;
   }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
@@ -292,6 +306,9 @@
   }
   .block {
     display: block;
+  }
+  .contents {
+    display: contents;
   }
   .flex {
     display: flex;
@@ -335,8 +352,14 @@
   .w-23 {
     width: calc(var(--spacing) * 23);
   }
+  .w-\[64rem\] {
+    width: 64rem;
+  }
   .w-\[80rem\] {
     width: 80rem;
+  }
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -349,6 +372,12 @@
   }
   .max-w-\[90\%\] {
     max-width: 90%;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-2 {
+    flex: 2;
   }
   .grow {
     flex-grow: 1;
@@ -377,8 +406,14 @@
   .justify-start {
     justify-content: flex-start;
   }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .space-x-4 {
     :where(& > :not(:last-child)) {
@@ -551,6 +586,10 @@
     font-size: var(--text-8xl) !important;
     line-height: var(--tw-leading, var(--text-8xl--line-height)) !important;
   }
+  .\!text-xl {
+    font-size: var(--text-xl) !important;
+    line-height: var(--tw-leading, var(--text-xl--line-height)) !important;
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -629,6 +668,10 @@
   .text-zinc-950 {
     color: var(--color-zinc-950);
   }
+  .ordinal {
+    --tw-ordinal: ordinal;
+    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+  }
   .\!underline {
     text-decoration-line: underline !important;
   }
@@ -695,6 +738,11 @@
       }
     }
   }
+  .xs\:grid-cols-2 {
+    @media (width >= 32rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .sm\:\!m-0 {
     @media (width >= 40rem) {
       margin: 0 !important;
@@ -750,6 +798,11 @@
       justify-content: center;
     }
   }
+  .sm\:gap-4 {
+    @media (width >= 40rem) {
+      gap: calc(var(--spacing) * 4);
+    }
+  }
   .sm\:bg-contain {
     @media (width >= 40rem) {
       background-size: contain;
@@ -758,6 +811,11 @@
   .sm\:bg-cover {
     @media (width >= 40rem) {
       background-size: cover;
+    }
+  }
+  .sm\:bg-size-\[50vw\] {
+    @media (width >= 40rem) {
+      background-size: 50vw;
     }
   }
   .sm\:p-8 {
@@ -795,9 +853,15 @@
       font-weight: var(--font-weight-normal) !important;
     }
   }
+  .lg\:grid-cols-3 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 }
 @layer base {
   h1 {
+    margin-block: calc(var(--spacing) * 6);
     font-family: var(--font-display);
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
@@ -807,6 +871,7 @@
     font-stretch: ultra-condensed;
   }
   h2 {
+    margin-block: calc(var(--spacing) * 4);
     font-family: var(--font-display);
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -815,9 +880,37 @@
     font-stretch: extra-condensed;
   }
   h3 {
+    margin-block: calc(var(--spacing) * 3);
     font-family: var(--font-display);
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    font-stretch: extra-condensed;
+  }
+  h4 {
+    margin-block: calc(var(--spacing) * 3);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    font-stretch: extra-condensed;
+  }
+  h5 {
+    margin-block: calc(var(--spacing) * 2);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    font-stretch: extra-condensed;
+  }
+  h6 {
+    margin-block: calc(var(--spacing) * 2);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
     font-stretch: extra-condensed;
@@ -849,7 +942,11 @@
     list-style-type: disc;
     padding-left: 3ch;
   }
-  ul li {
+  ol {
+    list-style-type: decimal;
+    padding-left: 3ch;
+  }
+  ul li, ol li {
     padding-left: 1ch;
   }
   ul li::marker {
@@ -857,12 +954,45 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  ul h1,	ul h2,	ul h3,	ul p {
+  ul h1, ol h1,	ul h2, ol h2,	ul h3, ol h3,	ul p, ol p {
     --tw-leading: 1.5;
     line-height: 1.5;
   }
-  ul > li > ul > li {
+  ul > li ul > li,	ol > li ul > li {
     list-style-type: circle;
+  }
+  li > ul, li > ul {
+    margin-top: 0.5em;
+  }
+  ul li:not(:last-child), ol li:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+  a {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 0.125em;
+    --tw-border-style: solid;
+    border-style: solid;
+    border-color: var(--color-black);
+    text-decoration-line: none;
+  }
+  pre {
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-primary-950);
+    padding: calc(var(--spacing) * 6);
+    color: var(--color-white);
+  }
+  * code {
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary-100);
+    padding-inline: 0.125em;
+    color: var(--color-primary-950);
+  }
+  pre code {
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none;
+    padding: 0;
+    color: inherit;
   }
 }
 @layer components {
@@ -894,8 +1024,13 @@
     overflow: hidden;
     overflow-x: auto;
   }
-  .content-wrapper {
+  #site-footer {
     overflow: hidden;
+    overflow-x: auto;
+  }
+  .content-wrapper {
+    position: relative;
+    overflow: clip;
   }
   .content-wrapper .content {
     margin-inline: auto;
@@ -986,6 +1121,26 @@ html.is-animating .transition-main {
   syntax: "*";
   inherits: false;
 }
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -1062,6 +1217,11 @@ html.is-animating .transition-main {
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;

@@ -1,3 +1,5 @@
+//import { IdAttributePlugin } from "@11ty/eleventy";
+
 import fs from "fs";
 import path from "path";
 
@@ -19,10 +21,24 @@ export default function(eleventyConfig) {
 	};
 	eleventyConfig.addShortcode("symbol", shortcode_symbol);
 
+	// simple icons (brand logos) - shortcode
+	let shortcode_brand = function(slug, extraClasses = "material-icons-rounded") {
+	    const filePath = path.join(process.cwd(), `node_modules/simple-icons/icons/${slug}.svg`);
+	    if (!fs.existsSync(filePath)) {console.warn(`Simple Icons' slug "${slug}" not found.`); return "";}
+	    let svgContent = fs.readFileSync(filePath, 'utf8');
+
+	    // "brand" inherits material-icons-rounded's class
+	    if (!extraClasses.includes("material-icons-rounded")) {extraClasses = "material-icons-rounded ".concat(extraClasses);}
+	    if (extraClasses) {svgContent = svgContent.replace('<svg ', `<svg class="${extraClasses}" `);}
+
+	    return svgContent;
+	};
+	eleventyConfig.addShortcode("brand", shortcode_brand);
+
 	// topbar shortcodes
 	eleventyConfig.addShortcode("topbarPath", function(title, path = "", links = "") {
 		let home_icon = shortcode_symbol("home", 400, undefined, "fill-current");
-		let home_btn = `<a href="/" class="my-4 text-primary-700 bg-primary-100 p-2 border-6 border-double border-primary-700 rounded-full"><span>${home_icon}<span class="mx-1 font-medium">home</span></span></a>`;
+		let home_btn = `<a href="/" class="my-4 text-primary-700 bg-primary-100 p-2 border-6 border-double border-primary-700 rounded-full"><span>${home_icon}<span class="mx-1 font-mono font-medium">home</span></span></a>`;
 		if (!title) {return home_btn;}
 
 		let path_icon = shortcode_symbol("east", 400, undefined, "!inline-block sm:!hidden");

@@ -5,14 +5,14 @@ const swup = new Swup({
 let header_startHeight = 0;
 
 swup.hooks.on("visit:start", () => {
-	const header = document.getElementById("site-header");
+	const header = document.getElementById("header");
 	header_startHeight = header.getBoundingClientRect().height;
 	header.style.height = `${header_startHeight}px`;
 });
 
 swup.hooks.on("page:view", () => {
-	const header = document.getElementById("site-header");
-	const topbar = document.getElementById("site-topbar");
+	const header = document.getElementById("header");
+	const topbar = document.getElementById("topbar");
 	const header_imgName = document.getElementById("header-img-name");
 
 	const main_container = document.getElementById("swup");

@@ -66,6 +66,11 @@
 	--color-icy-aqua-900: #072a2c;
 	--color-icy-aqua-950: #051d1f;*/
 
+	/* breakpoints */
+	--breakpoint-xs: 32rem;
+	--breakpoint-2xs: 24rem;
+	--breakpoint-3xs: 16rem;
+
 	/* thanks https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d/ */
 	  --ease-in-quad: cubic-bezier(.55, .085, .68, .53);
 	  --ease-in-cubic: cubic-bezier(.550, .055, .675, .19);
@@ -124,9 +129,12 @@
 /*p {@apply text-base font-sans}*/
 
 @layer base {
-	h1 {@apply text-6xl text-primary-600 font-display font-normal font-stretch-ultra-condensed}
-	h2 {@apply text-4xl font-display font-medium font-stretch-extra-condensed}
-	h3 {@apply text-3xl font-display font-medium font-stretch-extra-condensed}
+	h1 {@apply text-6xl text-primary-600 font-display font-normal font-stretch-ultra-condensed my-6;}
+	h2 {@apply text-4xl font-display font-medium font-stretch-extra-condensed my-4;}
+	h3 {@apply text-3xl font-display font-medium font-stretch-extra-condensed my-3;}
+	h4 {@apply text-2xl font-display font-medium font-stretch-extra-condensed my-3;}
+	h5 {@apply text-xl font-display font-medium font-stretch-extra-condensed my-2;}
+	h6 {@apply text-lg font-display font-medium font-stretch-extra-condensed my-2;}
 
 	hr,
 	.hr-squiggle {@apply relative w-full h-0 m-0 my-6 border-t-2 border-dashed border-primary-800;}
@@ -134,13 +142,25 @@
 	.hr-squiggle path {stroke-width: 2px; vector-effect: non-scaling-stroke;}
 
 	ul {@apply list-disc pl-[3ch];}
-	ul li {@apply pl-[1ch];}
+	ol {@apply list-decimal pl-[3ch];}
+	ul li, ol li {@apply pl-[1ch];}
 	ul li::marker {@apply font-sans font-bold;}
-	ul h1,
-	ul h2,
-	ul h3,
-	ul p {@apply leading-[1.5];}
-	ul > li > ul > li {@apply list-[circle];}
+	/*ol li::marker {@apply font-mono font-bold;}*/
+	ul h1, ol h1,
+	ul h2, ol h2,
+	ul h3, ol h3,
+	ul p, ol p {@apply leading-[1.5];}
+	ul > li ul > li,
+	ol > li ul > li {@apply list-[circle];}
+
+	li > ul, li > ul {@apply mt-[0.5em]}
+	ul li:not(:last-child), ol li:not(:last-child) {@apply mb-[0.5em]}
+
+	a {@apply no-underline border-b-[0.125em] border-solid border-black;}
+
+	pre {@apply bg-primary-950 text-white p-6 rounded-2xl;}
+	* code {@apply bg-primary-100 text-primary-950 px-[0.125em] rounded-sm;}
+	pre code {@apply bg-transparent bg-none text-inherit p-0 rounded-none;}
 }
 
 @layer components {
@@ -168,10 +188,11 @@
 	.topbar-full {@apply relative box-border top-0 w-full h-32;}
 	.header-compact {@apply relative box-border w-full h-auto min-h-[12rem] max-h-[48rem];}*/
 
-	#site-header {@apply overflow-hidden}
-	#site-topbar {@apply overflow-hidden overflow-x-auto}
+	#site-header {@apply overflow-hidden;}
+	#site-topbar {@apply overflow-hidden overflow-x-auto;}
+	#site-footer {@apply overflow-hidden overflow-x-auto;}
 
-	.content-wrapper {@apply overflow-hidden}
+	.content-wrapper {@apply relative overflow-clip;}
 	.content-wrapper .content {@apply box-border w-[64rem] max-w-[90%] sm:max-w-[95%] py-8 mx-auto;}
 	.content-wrapper .content.markdown > * {@apply max-w-[48rem] mb-6;}
 }

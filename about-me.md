@@ -9,7 +9,7 @@ topbar_on: true
 
 <section class="content flex flex-col items-center justify-center gap-4">
 	<div class="relative overflow-hidden w-full max-w-[40rem] box-border bg-(image:--gay-genderfluid-overlay) bg-size-[150%] sm:bg-contain bg-top-right bg-no-repeat flex flex-col items-start p-4 sm:p-8 border-2 border-secondary-800 rounded-2xl">
-		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover bg-no-repeat"></div>
+		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover sm:bg-contain bg-no-repeat"></div>
 		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-start w-full space-x-4 mb-8">
 			<!--<div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-content text-2xl shadow-inner justify-center text-white font-bold font-mono"></div>-->
 			<img src="/shared/avatar_img.png" alt="My avatar! (Profile picture)" class="justify-content w-23 h-23 sm:w-33 sm:h-33 p-0.5 mb-6 sm:mb-0 border-2 border-primary-600 rounded-full"></img>
@@ -19,16 +19,16 @@ topbar_on: true
 				<p class="!text-3xl sm:!text-3xl !leading-none !font-display !font-medium sm:!font-normal">or xon</p>
 			</div>
 		</div>
-		<p class="max-w-[35rem] text-lg mb-2"><b>Welcome</b> to my little corner of the web<i>!</i></p>
-		<p class="max-w-[35rem] text-lg mb-2">
+		<p class="max-w-[35rem] text-lg mb-4"><b>Welcome</b> to my little corner of the web<i>!</i></p>
+		<p class="max-w-[35rem] text-lg mb-4">
 			I am a <b>minor <span class="text-[75%]">(DO NOT GROOM)</span></b>, <b>gay</b> and <b>genderfluid</b> and I go by <b>any pronouns</b>.
 		</p>
-		<p class="max-w-[35rem] text-lg mb-2">I have some skills like <b>graphic design</b>, <b>digital art</b> <i>(to some extent)</i> and <b>coding</b>. The ones I <b>definitely</b> need to have but are not present, are like <i>speaking fluently in my native language and being productive</i>.</p>
-		<p class="max-w-[35rem] text-xl mt-2">I am the monarch of procrastinating! Mwahahahahaha >:3</p>
+		<p class="max-w-[35rem] text-lg mb-4">I have some skills like <b>graphic design</b>, <b>digital art</b> <i>(to some extent)</i> and <b>coding</b>. The ones I <b>definitely</b> need to have but are not present, are like <i>speaking fluently in my native language and being productive</i>.</p>
+		<p class="max-w-[35rem] text-xl mt-4">I am the monarch of procrastinating! Mwahahahahaha >:3</p>
 	</div>
 	<!--comign soon-->
 	<div class="hidden relative overflow-hidden w-full max-w-[40rem] box-border flex flex-col items-start p-4 sm:p-8 border-2 border-secondary-800 rounded-2xl">
-		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover bg-no-repeat"></div>
+		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover sm:bg-contain bg-no-repeat"></div>
 		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-start w-full space-x-4 mb-8"><div>
 				<p class="!text-6xl sm:!text-6xl !leading-none !underline !underline-offset-[0.25rem] !decoration-dashed !decoration-from-font !decoration-primary-600 !font-display !font-normal sm:!font-light !mt-2 sm:!m-0">happy pride month</p>
 			</div>
@@ -40,8 +40,7 @@ topbar_on: true
 	</div>
 </section>
 <section class="content markdown">
-	<h1 class="!text-8xl sm:!text-9xl"><span class="text-secondary-500 font-bold">></span>xon<br>disw</h1>
-	<p class="text-xl">I'm trying to <i>learn more about myself</i>,<br>and I will <b>continue</b> to add more to this page as I go on!</p>
+	<div class="mx-auto w-fit"><p class="text-xl">I'm trying to <i>learn more about myself</i>,<br>and I will <b>continue</b> to add more to this page as I go on!</p></div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 mx-auto">
 <section class="content markdown">

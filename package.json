@@ -4,12 +4,10 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-
 		"serve:11ty": "npx @11ty/eleventy --serve",
 		"build:tailwindcss": "npx @tailwindcss/cli -i ./src/css/input-tailwind.css -o ./src/css/input-lightning.css",
 		"build:lightningcss": "npx lightningcss --minify --targets 'safari >= 15.6' ./src/css/input-lightning.css -o ./_site/shared/main.css",
 		"dev:lightningcss": "npx lightningcss --targets 'safari >= 15.6' ./src/css/input-lightning.css -o ./_site/shared/main.css",
-
 		"dev:css": "npm run build:tailwindcss && npm run dev:lightningcss",
 		"build:css": "npm run build:tailwindcss && npm run build:lightningcss",
 		"watch-dev:css": "npx chokidar '**/*.html' 'src/css/*.css' '**/*.js' -i '_site/**/*.' -c 'npm run dev:css'",
@@ -26,6 +24,7 @@
 		"@material-symbols/svg-700": "^0.45.5",
 		"@tailwindcss/cli": "^4.3.2",
 		"chokidar-cli": "^3.0.0",
+		"simple-icons": "^16.26.0",
 		"tailwindcss": "^4.3.2"
 	},
 	"devDependencies": {

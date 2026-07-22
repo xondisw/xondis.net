@@ -1,17 +1,18 @@
 ---
 layout: husk.njk
+title: "xondis.net"
 header_state: full
 ---
 
-<section class="content">
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+<section class="sticky content top-0">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
 	<a href="/about-me/" class="block group relative overflow-hidden p-4 hover:bg-primary-100 transition-colors border-2 border-secondary-800 hover:border-primary-700 rounded-2xl">
 		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover bg-no-repeat"></div>
 		<p class="!text-3xl !leading-none !font-display text-black group-hover:text-primary-600">{% symbol "account_circle", 400, undefined, "fill-current" %} about me</p>
 	</a>
-	<a href="/about-this/" class="block group relative overflow-hidden p-4 hover:bg-primary-100 transition-colors border-2 border-secondary-800 hover:border-primary-700 rounded-2xl">
+	<a href="/projects/" class="block group relative overflow-hidden p-4 hover:bg-primary-100 transition-colors border-2 border-secondary-800 hover:border-primary-700 rounded-2xl">
 		<div class="-z-1 absolute top-0 left-0 w-full h-full bg-secondary-200 bg-(image:--secondary-fourhundred-vignette) bg-cover bg-no-repeat"></div>
-		<p class="!text-3xl !leading-none !font-display text-black group-hover:text-primary-600">{% symbol "web", 400, undefined, "fill-current" %} about this</p>
+		<p class="!text-3xl !leading-none !font-display text-black group-hover:text-primary-600">{% symbol "web", 400, undefined, "fill-current" %} projects</p>
 	</a>
 </div>
 </section>
